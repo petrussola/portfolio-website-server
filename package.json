@@ -13,9 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "googleapis": "^45.0.0",
     "helmet": "^3.21.2",
-    "nodemailer": "^6.3.1"
+    "mailgun-js": "^0.22.0"
   },
   "devDependencies": {
     "eslint": "^6.7.1"
