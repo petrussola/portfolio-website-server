@@ -15,7 +15,8 @@ const DOMAIN = process.env.EMAIL_TOOL_DOMAIN;
 const mg = mailgun({ apiKey: process.env.EMAIL_TOOL_API_KEY, domain: DOMAIN });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/build/index.html');
+  // res.sendFile(__dirname + '/client/build/index.html');
+  res.status(200).json({ message: `dummy endpoint` });
 });
 
 app.post('/contact', (req, res) => {
