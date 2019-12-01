@@ -6,7 +6,7 @@ const mailgun = require('mailgun-js');
 
 const app = express();
 
-app.use(express.static(__dirname + '../client/build'));
+app.use(express.static(__dirname + '/../client/build'));
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
@@ -15,7 +15,7 @@ const DOMAIN = process.env.EMAIL_TOOL_DOMAIN;
 const mg = mailgun({ apiKey: process.env.EMAIL_TOOL_API_KEY, domain: DOMAIN });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '../client/build/index.html');
+  res.sendFile(__dirname + '/../client/build/index.html');
   // res.status(200).json({ message: `dummy endpoint` });
 });
 
