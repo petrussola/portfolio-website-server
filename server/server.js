@@ -29,7 +29,11 @@ app.post('/contact', (req, res) => {
   };
   mg.messages().send(data, function(error, body) {
     if (error) {
-      console.log(error);
+      res
+        .status(500)
+        .json({
+          message: `There was a problem sending the message. Try again.`
+        });
     } else {
       res.status(200).json({ message: `Thanks, your message has been sent.` });
     }
