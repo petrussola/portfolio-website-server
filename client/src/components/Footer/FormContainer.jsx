@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ContactUsForm from './ContactUsForm';
 import axios from 'axios';
+import FormMessage from './FormMessage';
 
 // MATERIAL UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,22 +20,26 @@ const initialValues = {
 };
 
 export default function FormContainer({ inFooter }) {
-  const [isSentMessageOk, setIsSentMessageOk] = useState(false);
+  const [isSentMessage, setIsSentMessage] = useState(false);
   const [isSentMessageError, setIsSentMessageError] = useState(false);
+
   useEffect(() => {
-    setIsSentMessageOk(false);
+    setIsSentMessage(false);
     setIsSentMessageError(false);
-  });
+  }, []);
+
   const submitFormHandler = (values, action) => {
     axios
       .post((process.env.REACT_APP_API || '') + '/contact', values)
       .then(res => {
         debugger;
-        setIsSentMessageOk(true);
+        setIsSentMessage(true);
+        setIsSentMessageError(false);
         action.resetForm();
       })
       .catch(error => {
-        setIsSentMessageError(false);
+        setIsSentMessage(true);
+        setIsSentMessageError(true);
       });
   };
   const classes = useStyles();
@@ -44,6 +49,10 @@ export default function FormContainer({ inFooter }) {
         initialValues={initialValues}
         onSubmit={submitFormHandler}
         children={props => <ContactUsForm {...props} inFooter={inFooter} />}
+      />
+      <FormMessage
+        isSentMessage={isSentMessage}
+        isSentMessageError={isSentMessageError}
       />
     </div>
   );
