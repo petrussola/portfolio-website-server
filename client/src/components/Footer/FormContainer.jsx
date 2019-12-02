@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ContactUsForm from './ContactUsForm';
 import axios from 'axios';
@@ -19,15 +19,22 @@ const initialValues = {
 };
 
 export default function FormContainer({ inFooter }) {
+  const [isSentMessageOk, setIsSentMessageOk] = useState(false);
+  const [isSentMessageError, setIsSentMessageError] = useState(false);
+  useEffect(() => {
+    setIsSentMessageOk(false);
+    setIsSentMessageError(false);
+  });
   const submitFormHandler = (values, action) => {
     axios
       .post((process.env.REACT_APP_API || '') + '/contact', values)
-      .then(data => {
-        alert('form has been sent');
+      .then(res => {
+        debugger;
+        setIsSentMessageOk(true);
         action.resetForm();
       })
       .catch(error => {
-        debugger;
+        setIsSentMessageError(false);
       });
   };
   const classes = useStyles();

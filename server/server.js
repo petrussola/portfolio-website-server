@@ -31,7 +31,7 @@ app.post('/contact', (req, res) => {
     if (error) {
       console.log(error);
     } else {
-      res.status(200).json({ message: `yay` });
+      res.status(200).json({ message: `Thanks, your message has been sent.` });
     }
   });
 });
