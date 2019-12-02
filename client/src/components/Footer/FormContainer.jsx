@@ -32,13 +32,11 @@ export default function FormContainer({ inFooter }) {
     axios
       .post((process.env.REACT_APP_API || '') + '/contact', values)
       .then(res => {
-        debugger;
         setIsSentMessage(true);
         setIsSentMessageError(false);
         action.resetForm();
       })
       .catch(error => {
-        debugger
         setIsSentMessage(true);
         setIsSentMessageError(true);
       });

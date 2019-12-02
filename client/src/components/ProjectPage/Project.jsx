@@ -1,14 +1,14 @@
-import React from "react";
-import ProjectImage from "./ProjectImage";
-import ProjectDescription from "./ProjectDescription";
-import BeforeNext from "./BeforeNext";
-import { Link } from "react-router-dom";
+import React from 'react';
+import ProjectImage from './ProjectImage';
+import ProjectDescription from './ProjectDescription';
+import BeforeNext from './BeforeNext';
+import { Link } from 'react-router-dom';
 
 // PROJECT DATA
-import ProjectsData from "../../database/Projects";
+import ProjectsData from '../../database/Projects';
 
 // MATERIAL UI
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,11 +16,11 @@ const useStyles = makeStyles(theme => ({
   },
   projectContainer: {
     // margin: theme.spacing(3, 2),
-    display: "flex",
-    "flex-direction": "row"
+    display: 'flex',
+    'flex-direction': 'row'
   },
   imageContainer: {
-    width: "50%"
+    width: '50%'
   },
   error: {
     margin: theme.spacing(3, 2)
@@ -33,7 +33,6 @@ export default function Project(props) {
   const [selectedProject] = ProjectsData.filter(item => {
     return item.id === Number(id);
   });
-  debugger;
 
   return !selectedProject ? (
     <div className={classes.error}>
