@@ -38,6 +38,7 @@ export default function FormContainer({ inFooter }) {
         action.resetForm();
       })
       .catch(error => {
+        debugger
         setIsSentMessage(true);
         setIsSentMessageError(true);
       });
