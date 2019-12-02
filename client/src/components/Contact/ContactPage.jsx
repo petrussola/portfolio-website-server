@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ContactDetails from "./ContactDetails";
-import FormContainer from "../Footer/FormContainer";
+import FormContainer from "../Form/FormContainer";
 
 // MATERIAL UI
 import { makeStyles } from "@material-ui/core/styles";
