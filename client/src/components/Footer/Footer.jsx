@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // COMPONENTS
-import FormContainer from "./FormContainer";
+import FormContainer from "../Form/FormContainer";
 import ContactDetails from "./ContactDetails";
 import Copyright from "./Copyright";
 
