@@ -12,7 +12,9 @@ const useStyles = makeStyles(theme => ({
     'flex-direction': 'row',
     'justify-content': 'space-around',
     [theme.breakpoints.down('sm')]: {
-      'flex-direction': 'column'
+      'flex-direction': 'column',
+      'align-items': 'center',
+      'justify-content': 'center'
     }
   }
 }));
