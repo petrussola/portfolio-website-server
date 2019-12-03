@@ -7,11 +7,15 @@ import FormMessage from './FormMessage';
 // MATERIAL UI
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    width: '50%'
+    width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      'margin-top': '1rem'
+    }
   }
-});
+}));
 
 const initialValues = {
   name: '',
