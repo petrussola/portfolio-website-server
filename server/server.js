@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   // res.status(200).json({ message: `dummy endpoint` });
 });
 
+app.post('/ssl', (req, res) => {
+  res.status(200).json({message: 'process.env.NODE_ENV'})
+})
+
 app.post('/contact', (req, res) => {
   const { name, email, message } = req.body;
   const data = {
