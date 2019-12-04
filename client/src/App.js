@@ -16,7 +16,7 @@ import Axios from 'axios';
 function App() {
   useEffect(() => {
     axios
-      .get('/ssl')
+      .post('/ssl', { message: 'lol' })
       .then(data => {
         alert(data.data.message);
       })
