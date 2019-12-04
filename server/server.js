@@ -1,3 +1,4 @@
+var sslRedirect = require('heroku-ssl-redirect');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -6,15 +7,8 @@ const mailgun = require('mailgun-js');
 
 const app = express();
 
+app.use(sslRedirect());
 app.use(express.static(__dirname + '/../client/build'));
-if(process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https')
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    else
-      next()
-  })
-}
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
