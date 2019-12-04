@@ -18,7 +18,7 @@ function App() {
     axios
       .get('/ssl')
       .then(data => {
-        console.log(data.data.message);
+        alert(data.data.message);
       })
       .catch(error => {
         console.log(error);
