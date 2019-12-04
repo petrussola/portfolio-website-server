@@ -16,7 +16,7 @@ import Axios from 'axios';
 function App() {
   useEffect(() => {
     axios
-      .get('http://localhost:4400/ssl')
+      .get('/ssl')
       .then(data => {
         console.log(data.data.message);
       })
