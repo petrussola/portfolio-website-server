@@ -3,15 +3,21 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 const mailgun = require('mailgun-js');
-const enforce = require('express-sslify');
 
 const app = express();
 
 app.use(express.static(__dirname + '/../client/build'));
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 const DOMAIN = process.env.EMAIL_TOOL_DOMAIN;
 const mg = mailgun({ apiKey: process.env.EMAIL_TOOL_API_KEY, domain: DOMAIN });
