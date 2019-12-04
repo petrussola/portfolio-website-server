@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
   // res.status(200).json({ message: `dummy endpoint` });
 });
 
-app.post('/ssl', (req, res) => {
-  res.status(200).json({message: 'process.env.NODE_ENV'})
+app.get('/ssl', (req, res) => {
+  res.status(200).json({message: process.env.NODE_ENV})
 })
 
 app.post('/contact', (req, res) => {
