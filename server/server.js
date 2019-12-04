@@ -3,10 +3,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 const mailgun = require('mailgun-js');
+const sslRedirect = require('heroku-ssl-redirect');
 
 const app = express();
 
 app.use(express.static(__dirname + '/../client/build'));
+app.use(sslRedirect());
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
@@ -29,11 +31,9 @@ app.post('/contact', (req, res) => {
   };
   mg.messages().send(data, function(error, body) {
     if (error) {
-      res
-        .status(500)
-        .json({
-          message: `There was a problem sending the message. Try again.`
-        });
+      res.status(500).json({
+        message: `There was a problem sending the message. Try again.`
+      });
     } else {
       res.status(200).json({ message: `Thanks, your message has been sent.` });
     }
