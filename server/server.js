@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 const mailgun = require('mailgun-js');
+const path = require('path')
 
 const app = express();
 
@@ -16,8 +17,14 @@ app.use(express.json());
 const DOMAIN = process.env.EMAIL_TOOL_DOMAIN;
 const mg = mailgun({ apiKey: process.env.EMAIL_TOOL_API_KEY, domain: DOMAIN });
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/../client/build/index.html');
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/build/index.html'), function(
+    err
+  ) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
   // res.status(200).json({ message: `dummy endpoint` });
 });
 

@@ -4,12 +4,15 @@ import ProfilePhoto from "./ProfilePhoto";
 // MATERIAL UI
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     width: "50%",
-    margin: "0 auto"
+    margin: "0 auto",
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    }
   }
-});
+}));
 
 export default function DescriptionMe() {
   const classes = useStyles();
@@ -29,7 +32,7 @@ export default function DescriptionMe() {
 
       <h3>LANGUAGES & FRAMEWORKS</h3>
       <p className={"center spacedlines"}>
-        HTML | CSS | Javascript | React | Node | Express | Relational Databases
+        HTML | CSS | Javascript | React | Node | Express | Relational Databases | MongoDB
       </p>
     </div>
   );

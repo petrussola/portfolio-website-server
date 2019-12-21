@@ -5,7 +5,7 @@ import DescriptionMe from "./DescriptionMe";
 // MATERIAL UI
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     padding: "50px",
     display: "flex",
@@ -17,9 +17,13 @@ const useStyles = makeStyles({
     padding: '25px',
     display: "flex",
     "flex-direction": "row",
-    'align-items': 'center'
+    'align-items': 'center',
+    [theme.breakpoints.down('sm')]: {
+      'flex-direction': 'column',
+      border: '1px solid red'
+    }
   }
-});
+}));
 
 export default function About() {
   const classes = useStyles();

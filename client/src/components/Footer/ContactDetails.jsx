@@ -1,23 +1,26 @@
-import React from "react";
-import SocialMedia from "./SocialMedia";
-import Copyright from "./Copyright";
+import React from 'react';
+import SocialMedia from './SocialMedia';
+import Copyright from './Copyright';
 
 // MATERIAL UI
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    width: "50%",
-    display: "flex",
-    "flex-direction": "column",
-    "align-items": "center",
-    "justify-content": "space-evenly",
-    height: "100%"
+    width: '50%',
+    display: 'flex',
+    'flex-direction': 'column',
+    'align-items': 'center',
+    'justify-content': 'space-evenly',
+    height: '100%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    }
   },
   icon: {
-    color: "white"
+    color: 'white'
   }
-});
+}));
 
 export default function ContactDetails() {
   const classes = useStyles();
