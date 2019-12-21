@@ -16,7 +16,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
     width: "50%",
     height: "auto",
-    "text-align": "left"
+    "text-align": "left",
+    [theme.breakpoints.down('sm')]: {
+      width: "95%"
+    }
   },
   cardButtons: {
     display: "flex",

@@ -1,28 +1,30 @@
-
-import React from "react";
+import React from 'react';
 
 // MATERIAL UI
-import { makeStyles } from "@material-ui/core/styles";
-import CopyrightIcon from "@material-ui/icons/Copyright";
+import { makeStyles } from '@material-ui/core/styles';
+import CopyrightIcon from '@material-ui/icons/Copyright';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    "flex-direction": "row",
-    "align-items": "center"
+    display: 'flex',
+    'flex-direction': 'row',
+    'align-items': 'center',
+    [theme.breakpoints.down('sm')]: {
+      'justify-content': 'center'
+    }
   },
   icon: {
-    color: "white"
+    color: 'white'
   }
-});
+}));
 const currentYear = new Date().getFullYear();
 
 export default function Copyright() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <CopyrightIcon fontSize={"small"} />
-      <div>{`${currentYear} by Pere Solà`}</div>
+      <CopyrightIcon fontSize={'small'} />
+      <div>{`${currentYear} Made with React by Pere Solà`}</div>
     </div>
   );
 }

@@ -13,7 +13,10 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     "flex-direction": "column",
     "justify-content": "center",
-    "align-items": "center"
+    "align-items": "center",
+    [theme.breakpoints.down('sm')]: {
+      width: "95%"
+    }
   },
   image: {
     width: "95%",

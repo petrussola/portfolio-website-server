@@ -20,7 +20,6 @@ const useStyles = makeStyles(theme => ({
     'align-items': 'center',
     [theme.breakpoints.down('sm')]: {
       'flex-direction': 'column',
-      border: '1px solid red'
     }
   }
 }));
