@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 const mailgun = require('mailgun-js');
+const path = require('path')
 
 const app = express();
 
