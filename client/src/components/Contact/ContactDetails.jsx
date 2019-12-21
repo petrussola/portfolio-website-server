@@ -13,7 +13,10 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     "flex-direction": "column",
     "align-items": "center",
-    "justify-content": "center"
+    "justify-content": "center",
+    [theme.breakpoints.down('sm')]: {
+      width: "100%"
+    }
   },
   list: {
     width: "50%",
