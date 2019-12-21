@@ -25,8 +25,7 @@ const useStyles = makeStyles(theme => ({
     height: 'inherit',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
-      'flex-direction': 'column',
-      border: '1px solid red'
+      'flex-direction': 'column'
     }
   }
 }));
