@@ -24,7 +24,7 @@ export default function Copyright() {
   return (
     <div className={classes.root}>
       <CopyrightIcon fontSize={'small'} />
-      <div>{`${currentYear} Made with love with React by Pere Solà`}</div>
+      <div>{`${currentYear} Made with React by Pere Solà`}</div>
     </div>
   );
 }
