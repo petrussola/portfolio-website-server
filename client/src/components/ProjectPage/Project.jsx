@@ -17,7 +17,10 @@ const useStyles = makeStyles(theme => ({
   projectContainer: {
     // margin: theme.spacing(3, 2),
     display: 'flex',
-    'flex-direction': 'row'
+    'flex-direction': 'row',
+    [theme.breakpoints.down('sm')]: {
+      'flex-direction': 'column'
+    }
   },
   imageContainer: {
     width: '50%'
