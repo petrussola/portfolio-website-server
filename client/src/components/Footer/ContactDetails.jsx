@@ -1,6 +1,5 @@
 import React from 'react';
 import SocialMedia from './SocialMedia';
-import Copyright from './Copyright';
 
 // MATERIAL UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,7 +27,6 @@ export default function ContactDetails() {
     <div className={classes.root}>
       <h1>CONTACT</h1>
       <SocialMedia />
-      <Copyright />
     </div>
   );
 }

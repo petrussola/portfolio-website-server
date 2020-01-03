@@ -16,6 +16,16 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: 'auto'
   },
+  rootcontact: {
+    padding: theme.spacing(2, 3),
+    background: 'black',
+    color: 'white',
+    width: '100%',
+    height: 'auto',
+    display: 'flex',
+    'flex-direction': 'column',
+    'align-items': 'center'
+  },
   container: {
     width: '50%',
     margin: '0 auto',
@@ -27,6 +37,12 @@ const useStyles = makeStyles(theme => ({
       width: '100%',
       'flex-direction': 'column'
     }
+  },
+  footnote: {
+    padding: theme.spacing(2, 3),
+    display: 'flex',
+    'flex-direction': 'column',
+    'align-items': 'center'
   }
 }));
 
@@ -35,8 +51,9 @@ export default function Footer(props) {
   const classes = useStyles();
   if (props.location.pathname === '/contact') {
     return (
-      <div className={classes.root} id={'test'}>
+      <div className={classes.rootcontact} id={'test'}>
         <Copyright />
+        <p>Made with love with React and Node/Express</p>
       </div>
     );
   } else {
@@ -45,6 +62,10 @@ export default function Footer(props) {
         <div className={classes.container}>
           <ContactDetails />
           <FormContainer inFooter={inFooter} />
+        </div>
+        <div className={classes.footnote}>
+          <Copyright />
+          <p>Made with love with React and Node/Express</p>
         </div>
       </div>
     );
