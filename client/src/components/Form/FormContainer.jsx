@@ -35,7 +35,7 @@ export default function FormContainer({ inFooter }) {
   const submitFormHandler = (values, action) => {
     debugger
     axios
-      .post('/contact', values)
+      .post((process.env.REACT_APP_API || '') + '/contact', values)
       .then(res => {
         debugger
         setIsSentMessage(true);
