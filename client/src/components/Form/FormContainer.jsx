@@ -35,7 +35,7 @@ export default function FormContainer({ inFooter }) {
   const submitFormHandler = (values, action) => {
     debugger
     axios
-      .post('https://www.peresola.com/contact', values)
+      .post('/contact', values)
       .then(res => {
         debugger
         setIsSentMessage(true);
