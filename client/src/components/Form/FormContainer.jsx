@@ -23,6 +23,14 @@ const initialValues = {
   message: ''
 };
 
+let emailEndPoint;
+
+if (process.env.NODE_ENV === 'production') {
+  emailEndPoint = '/contact';
+} else {
+  emailEndPoint = `${process.env.REACT_APP_API}/contact`;
+}
+
 export default function FormContainer({ inFooter }) {
   const [isSentMessage, setIsSentMessage] = useState(false);
   const [isSentMessageError, setIsSentMessageError] = useState(false);
@@ -33,11 +41,10 @@ export default function FormContainer({ inFooter }) {
   }, []);
 
   const submitFormHandler = (values, action) => {
-    debugger
+    debugger;
     axios
-      .post((process.env.REACT_APP_API || '') + '/contact', values)
+      .post(emailEndPoint, values)
       .then(res => {
-        debugger
         setIsSentMessage(true);
         setIsSentMessageError(false);
         action.resetForm();

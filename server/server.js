@@ -4,7 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 const mailgun = require('mailgun-js');
-const path = require('path')
+const path = require('path');
 
 const app = express();
 
@@ -38,10 +38,12 @@ app.post('/contact', (req, res) => {
   };
   mg.messages().send(data, function(error, body) {
     if (error) {
+      console.log(process.env.NODE_ENV);
       res.status(500).json({
         message: `There was a problem sending the message. Try again.`
       });
     } else {
+      console.log(process.env.NODE_ENV);
       res.status(200).json({ message: `Thanks, your message has been sent.` });
     }
   });
